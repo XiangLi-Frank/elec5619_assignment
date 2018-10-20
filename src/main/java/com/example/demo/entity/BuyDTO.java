@@ -2,9 +2,7 @@ package com.example.demo.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author qinzhongjian
@@ -16,12 +14,14 @@ import javax.persistence.Table;
 @Entity
 public class BuyDTO {
     @Id
-    private String id;//商品id，唯一标志号
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private String commodity;//关联商品id
     private String name;//商品名称
     private String username;//买家
     private String picture;//图片
     private String content;//简介
     private Double price;//价格
     private Integer count;//购买数量
-    private boolean state;//购买状态 0：提交订单  1：成功交易
+    private String state;//购买状态 order：提交订单  success：成功交易  fail：失败交易
 }

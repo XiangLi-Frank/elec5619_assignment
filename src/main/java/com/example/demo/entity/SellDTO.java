@@ -26,5 +26,5 @@ public class SellDTO {
     private String content;//简介
     private Double price;//价格
     private Integer count;//购买数量
-    private boolean state;//购买状态 0：提交订单  1：成功交易
+    private String state;//购买状态 0：提交订单  1：成功交易
 }

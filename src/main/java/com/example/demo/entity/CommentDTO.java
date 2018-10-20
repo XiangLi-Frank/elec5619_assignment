@@ -2,10 +2,7 @@ package com.example.demo.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -16,11 +13,11 @@ import java.util.Date;
 @Data
 @Table
 @Entity
-@IdClass(MultiKeysClass.class)
 public class CommentDTO {
     @Id
-    private String id;//商品id
-    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private String commodity;//关联商品id
     private String username;//用户名
     private String comment;//评论内容
     private Date date;//评论日期

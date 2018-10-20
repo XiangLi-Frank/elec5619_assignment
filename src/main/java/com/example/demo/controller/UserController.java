@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @author qinzhongjian
@@ -73,4 +74,9 @@ public class UserController {
         return RestEntity.ok(RestStatusEnum.ACCOUNT_LOGOUT_SUCCESS,null,null);
     }
 
+    @GetMapping(value="/user")
+    public RestEntity getUser() {
+        List<UserDTO> userDTOS = this.userRepository.findAll();
+        return RestEntity.ok(userDTOS);
+    }
 }

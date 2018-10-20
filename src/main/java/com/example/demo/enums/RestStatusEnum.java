@@ -20,7 +20,7 @@ public enum RestStatusEnum {
     UPLOAD_IMAGE__ERROR(2002, "Image upload error"),
     RELEASE_ERROR(2004, "The product already exists and can not be re-released！"),//该商品已存在，不能重新发布
     // 40xxx 客户端不合法的请求
-    INVALID_MODEL_FIELDS(2005, "字段校验非法"),
+    INVENTORY_SHORTAGE(2005, "Inventory shortage"),
     /**
      * 参数类型非法，常见于SpringMVC中String无法找到对应的enum而抛出的异常
      */

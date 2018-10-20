@@ -6,6 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 /**
  * @author qinzhongjian
  * @date created in 2018/10/17 09:15
@@ -14,4 +16,5 @@ import org.springframework.data.repository.query.Param;
 public interface CommodityRepository extends JpaRepository<CommodityDTO, String> {
 
     Page<CommodityDTO> findAllByUsername(@Param("username")String username, Pageable pageable);
+    List<CommodityDTO> findAllByUsername(@Param("username")String username);
 }
