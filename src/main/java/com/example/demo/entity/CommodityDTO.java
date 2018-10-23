@@ -18,6 +18,7 @@ public class CommodityDTO {
     private String name;//商品名称
     private String username;//商家
     private String picture;//图片
+    private String category;//类别
     private String introduction;//简介
     private Double price;//价格
     private Integer lave;//剩余件数

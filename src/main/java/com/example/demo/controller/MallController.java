@@ -27,11 +27,12 @@ public class MallController {
     @Autowired
     BuyRepository buyRepository;
 
-    @GetMapping("/listCommodityDTO")
-    public RestEntity listCommodityDTO(){
+    @GetMapping("/listCommodityDTO/{category}")
+    public RestEntity listCommodityDTO(@PathVariable String category){
         List<CommodityDTO> commodityDTOS = this.commodityRepository.findAll();
         //获取库存不为0的商品
-        commodityDTOS = commodityDTOS.stream().filter(commodityDTO -> commodityDTO.getLave() != 0).collect(Collectors.toList());
+        commodityDTOS = commodityDTOS.stream().filter(commodityDTO -> commodityDTO.getLave() != 0)
+                .filter(commodityDTO -> commodityDTO.getCategory().equals(category)).collect(Collectors.toList());
         return RestEntity.ok(commodityDTOS);
     }
 
