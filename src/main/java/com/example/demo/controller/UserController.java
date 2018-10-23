@@ -6,9 +6,7 @@ import com.example.demo.model.RestEntity;
 import com.example.demo.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -78,5 +76,18 @@ public class UserController {
     public RestEntity getUser() {
         List<UserDTO> userDTOS = this.userRepository.findAll();
         return RestEntity.ok(userDTOS);
+    }
+
+    /**
+     * description: <br>
+     * 根据用户名删除用户
+     * @param: username
+     * @return:
+     * @method：
+     */
+    @DeleteMapping(value="/delUser/{username}")
+    public RestEntity delUser(@PathVariable String username) {
+        this.userRepository.delete(username);
+        return RestEntity.ok(username);
     }
 }
