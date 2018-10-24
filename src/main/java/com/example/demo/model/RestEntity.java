@@ -1,11 +1,13 @@
 package com.example.demo.model;
 
+import com.example.demo.enums.RestStatusEnum;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.validation.constraints.Null;
 import java.io.Serializable;
 
 /**
@@ -51,5 +53,15 @@ public class RestEntity implements Serializable {
      */
     @JsonProperty("details")
     private Object details;
+
+    public static RestEntity ok(RestStatusEnum restStatusEnum, @Null String username, @Null String role){
+        return new RestEntity(restStatusEnum,username,role);
+    }
+    public static RestEntity ok(Object details){
+        return new RestEntity(RestStatusEnum.OK,details);
+    }
+    public static RestEntity error(RestStatusEnum restStatusEnum, @Null Object error){
+        return new RestEntity(restStatusEnum,error);
+    }
 
 }
