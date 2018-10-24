@@ -63,5 +63,25 @@ public class RestEntity implements Serializable {
     public static RestEntity error(RestStatusEnum restStatusEnum, @Null Object error){
         return new RestEntity(restStatusEnum,error);
     }
+	
+    public RestEntity(RestStatusEnum restStatusEnum, @Null String username,@Null String role) {
+        this.code = restStatusEnum.getCode();
+        this.msg = restStatusEnum.getMessage();
+        if (username != null) {
+            this.username = username;
+        }
+        if (role != null) {
+            this.role = role;
+        }
+    }
+
+    public RestEntity(RestStatusEnum restStatusEnum, @Null Object details) {
+        this.code = restStatusEnum.getCode();
+        this.msg = restStatusEnum.getMessage();
+        if (details != null) {
+            this.details = details;
+        }
+
+    }
 
 }
