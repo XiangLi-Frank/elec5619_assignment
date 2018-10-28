@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  * @since 1.0.0
  */
 
-public class MallController1 {
+public class MallController {
 
     @Autowired
     CommodityRepository commodityRepository;
@@ -31,6 +31,15 @@ public class MallController1 {
         //get commodity that its stock is not empty
         commodityDTOS = commodityDTOS.stream().filter(commodityDTO -> commodityDTO.getLave() != 0)
                 .filter(commodityDTO -> commodityDTO.getCategory().equals(category)).collect(Collectors.toList());
+        return RestEntity.ok(commodityDTOS);
+    }
+	
+	    @GetMapping("/listCommodityDTO/{category}/{keyword}")
+    public RestEntity listCommodityDTO(@PathVariable String category,@PathVariable String keyword){
+        List<CommodityDTO> commodityDTOS = this.commodityRepository.findAll();
+        commodityDTOS = commodityDTOS.stream().filter(commodityDTO -> commodityDTO.getLave() != 0)
+                .filter(commodityDTO -> commodityDTO.getCategory().equals(category))
+                .filter(commodityDTO -> commodityDTO.getName().indexOf(keyword) != -1).collect(Collectors.toList());
         return RestEntity.ok(commodityDTOS);
     }
 }
