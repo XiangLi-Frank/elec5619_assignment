@@ -9,8 +9,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 /**
- * @author qinzhongjian
- * @date created in 2018/10/17 09:15
+ * @author haocunli
+ * @date created in 2018/10/20 17:35
  * @since 1.0.0
  */
 public interface CommodityRepository extends JpaRepository<CommodityDTO, String> {
