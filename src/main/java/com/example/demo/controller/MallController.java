@@ -30,6 +30,7 @@ public class MallController {
     @Autowired
     BuyRepository buyRepository;
 
+    //首页分类显示商品
     @GetMapping("/listCommodityDTO/{category}")
     public RestEntity listCommodityDTO(@PathVariable String category){
         List<CommodityDTO> commodityDTOS = this.commodityRepository.findAll();
@@ -39,7 +40,7 @@ public class MallController {
         return RestEntity.ok(commodityDTOS);
     }
 
-
+    //首页分类显示商品，搜索功能
     @GetMapping("/listCommodityDTO/{category}/{keyword}")
     public RestEntity listCommodityDTO(@PathVariable String category,@PathVariable String keyword){
         List<CommodityDTO> commodityDTOS = this.commodityRepository.findAll();
