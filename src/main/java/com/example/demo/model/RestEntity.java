@@ -11,17 +11,25 @@ import javax.validation.constraints.Null;
 import java.io.Serializable;
 
 /**
- * @author haocun li
+ * @author haocun li & Xiang li
  * @date created in 2018/10/24 23:42
  * @since 1.0.0
  */
+//封装相应内容，原始的做法可以在每个Controller中去处理，返回数据本身就封装有处理码，数据，异常。不好就是每个Controller都需要向外暴露一个返回的对象封装处理
+//最好同一处理这种转换，在无异常时返回数据本身，出现异常时显示出合适的异常
+
 
 @Data
+//生成tostring方法
 @ToString
+//属性值为null的不参加序列化
 @JsonInclude(JsonInclude.Include.NON_NULL)
+//忽略位置属性的jason转化，防止一些Json转换异常错误
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RestEntity implements Serializable {
 
+//实现对象的持久化，将对象写入磁盘，在程序调用时重新恢复对象，实现持久
+public class RestEntity implements Serializable {
+    //保持版本的兼容性，在版本升级反序列化仍然保持对象的唯一性
     private static final long serialVersionUID = 3550224421750657701L;
 
     /**

@@ -30,8 +30,8 @@ public class FileUploadService {
             if (type!=null) {
                 if ("GIF".equals(type.toUpperCase())||"PNG".equals(type.toUpperCase())||"JPG".equals(type.toUpperCase())) {
 
-                    String realPath="E:\\ELEC5619\\assignment-master\\src\\main\\resources\\tmp\\";
-
+                    //String realPath="E:\\ELEC5619\\assignment-master\\src\\main\\resources\\tmp\\";
+                    String realPath = "/Users/xiangli/Desktop/elec5619/demo/src/main/resources/tmp/";
                     path=realPath+fileName;
                     log.info("Path:"+path);
 

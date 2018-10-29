@@ -12,11 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- * @author qinzhongjian
- * @date created in 2018/10/17 14:53
- * @since 1.0.0
- */
+
 @Slf4j
 @RestController
 public class UserController {
