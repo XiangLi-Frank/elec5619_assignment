@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 /**
- * @author Fulina
+ * @author Lina Fu
  * @date created in 2018/10/19 14:12
  * @since 1.0.0
  */
@@ -21,10 +21,13 @@ import java.util.Date;
 @RestController
 public class CommentController {
 
+    //@Autowired 注入类对类成员变量，方法和构造函数标注，自动装配，消除set,get
     @Autowired
     CommentRepository commentRepository;
+    //上传数据，将数据发给服务器
 
     @PostMapping("/addComment")
+    //@RequestBody 接受的是一个Json对象的字符串，不是一个Json对象
     public RestEntity addComment(@RequestBody CommentDTO commentDTO){
         commentDTO.setDate(new Date());
         this.commentRepository.save(commentDTO);
