@@ -6,13 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * @author qinzhongjian
- * @date created in 2018/10/17 08:39
- * @since 1.0.0
- */
+
+
+//将常规的普通Java对象映射到数据库
+//减少get set的使用
 @Data
+//定义表
 @Table
+//定义CommentDTO为一个是实体类，默认对应数据库中的表名是ComentDTO
 @Entity
 public class UserDTO {
     @Id
