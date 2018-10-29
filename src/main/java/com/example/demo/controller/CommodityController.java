@@ -72,15 +72,15 @@ public class CommodityController {
         }
         return RestEntity.ok(RestStatusEnum.RELEASE_SUCCESS,null,id);
 	}
-	
+
     @GetMapping("/listOrder/{username}/{pageSize}/{pageIndex}")
     public RestEntity listBuyDTO(@PathVariable String username,@PathVariable Integer pageSize,@PathVariable Integer pageIndex){
         PageRequest pageRequest = new PageRequest(pageIndex-1,pageSize);
         List<CommodityDTO> commodityDTOS = this.commodityRepository.findAllByUsername(username);
-        List<String> ids = commodityDTOS().map(commodityDTO -> commodityDTO.getId()).collect(Collectors.toList());
+        List<String> ids = commodityDTOS.stream().map(commodityDTO -> commodityDTO.getId()).collect(Collectors.toList());
         Page<BuyDTO> buyDTOS =  this.buyRepository.findAllByStateAndCommodityIn("order",ids,pageRequest);
         return RestEntity.ok(buyDTOS);
-	}
+    }
 	
 	@GetMapping("/listOrder/{pageSize}/{pageIndex}")
     public RestEntity listAllBuyDTO(@PathVariable Integer pageSize,@PathVariable Integer pageIndex){
