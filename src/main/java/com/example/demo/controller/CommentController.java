@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 /**
- * @author qinzhongjian
+ * @author Fulina
  * @date created in 2018/10/19 14:12
  * @since 1.0.0
  */

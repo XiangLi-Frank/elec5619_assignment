@@ -8,11 +8,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-/**
- * @author qinzhongjian
- * @date created in 2018/10/17 09:26
- * @since 1.0.0
- */
 public interface BuyRepository extends JpaRepository<BuyDTO,Integer> {
 
     Page<BuyDTO> findAllByUsername(@Param("username")String username, Pageable pageable);
