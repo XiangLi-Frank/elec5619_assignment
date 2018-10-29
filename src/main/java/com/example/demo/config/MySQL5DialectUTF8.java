@@ -3,7 +3,7 @@ package com.example.demo.config;
 import org.hibernate.dialect.MySQL5InnoDBDialect;
 
 /**
- * @author qinzhongjian
+ * @author XiangLi
  * @date created in 2018/9/26 10:53
  * @since 1.0.0
  */
