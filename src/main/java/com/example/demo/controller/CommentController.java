@@ -16,6 +16,8 @@ import java.util.Date;
  * @date created in 2018/10/19 14:12
  * @since 1.0.0
  */
+
+//@Controller表明该类所有方法默认返回页面路径，加了@ResponseBody的方法返回数据。@RestController返回的都是数据，不返回页面
 @RestController
 public class CommentController {
 
