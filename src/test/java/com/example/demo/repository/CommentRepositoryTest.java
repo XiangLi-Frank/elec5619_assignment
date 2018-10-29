@@ -8,23 +8,24 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.data.domain.PageRequest;
 
 import javax.ejb.EJB;
 
+import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
-public class BuyRepositoryTest {
+public class CommentRepositoryTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClass(BuyRepository.class)
+                .addClass(CommentRepository.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
-   @EJB BuyRepository buyRepository;
-           @Test
-           public void order_should_be_persistent() {
-               Assert.assertEquals(1,buyRepository.toString());
-               System.out.println(buyRepository.getClass().getName());
-           }
+
+    @EJB CommentRepository commentRepository;
+    @Test
+    public void order_should_be_persistent() {
+        Assert.assertEquals(1,commentRepository.toString());
+    }
+
 }

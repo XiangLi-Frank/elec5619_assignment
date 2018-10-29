@@ -1,42 +1,38 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.BuyDTO;
-import com.example.demo.entity.CommodityDTO;
 import com.example.demo.repository.BuyRepository;
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.core.api.annotation.Inject;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.ejb.EJB;
-
-import java.io.File;
+import javax.inject.Inject;
 
 import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
-public class CommodityControllerTest {
+public class MallControllerTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClass(CommodityController.class)
+                .addClass(MallController.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
-    @Inject
-    CommodityController commodityController;
 
     @EJB
     BuyRepository buyRepository;
-    public void order_should_be_persistent() {
-        commodityController.add(new CommodityDTO());
+
+    @Inject
+    CommodityController commodityController;
+    @Test
+    public void buyCommodityDTO() {
         Integer pageNoFromWeb = 1;
         //
         /**
@@ -50,7 +46,6 @@ public class CommodityControllerTest {
         // 总记录数（总数据条数）
         int number = buyDTOS.getNumber();
         System.out.println(number);
-
     }
 
 
